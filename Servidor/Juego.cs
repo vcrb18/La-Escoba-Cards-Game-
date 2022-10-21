@@ -28,14 +28,19 @@ public class Juego
 
     public void Jugar()
     {
+        
         while (!EsFinJuego())
         {
-            
+            JugarTurno();
         }
     }
 
     private bool EsFinJuego()
     {
         return false;
+    }
+
+    private void JugarTurno()
+    {
     }
 }

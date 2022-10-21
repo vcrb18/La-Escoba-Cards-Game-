@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vicru\\RiderProjects\\Escoba\\Servidor\\Servidor.csproj": {}
+    "C:\\Users\\vicru\\RiderProjects\\La-Escoba-Cards-Game-\\Servidor\\Servidor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vicru\\RiderProjects\\Escoba\\Servidor\\Servidor.csproj": {
+    "C:\\Users\\vicru\\RiderProjects\\La-Escoba-Cards-Game-\\Servidor\\Servidor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vicru\\RiderProjects\\Escoba\\Servidor\\Servidor.csproj",
+        "projectUniqueName": "C:\\Users\\vicru\\RiderProjects\\La-Escoba-Cards-Game-\\Servidor\\Servidor.csproj",
         "projectName": "Servidor",
-        "projectPath": "C:\\Users\\vicru\\RiderProjects\\Escoba\\Servidor\\Servidor.csproj",
+        "projectPath": "C:\\Users\\vicru\\RiderProjects\\La-Escoba-Cards-Game-\\Servidor\\Servidor.csproj",
         "packagesPath": "C:\\Users\\vicru\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vicru\\RiderProjects\\Escoba\\Servidor\\obj\\",
+        "outputPath": "C:\\Users\\vicru\\RiderProjects\\La-Escoba-Cards-Game-\\Servidor\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vicru\\AppData\\Roaming\\NuGet\\NuGet.Config"

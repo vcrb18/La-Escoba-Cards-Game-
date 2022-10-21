@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vicru\\RiderProjects\\Escoba\\Escoba.csproj",
+      "projectUniqueName": "C:\\Users\\vicru\\RiderProjects\\La-Escoba-Cards-Game-\\Escoba.csproj",
       "projectName": "Escoba",
-      "projectPath": "C:\\Users\\vicru\\RiderProjects\\Escoba\\Escoba.csproj",
+      "projectPath": "C:\\Users\\vicru\\RiderProjects\\La-Escoba-Cards-Game-\\Escoba.csproj",
       "packagesPath": "C:\\Users\\vicru\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vicru\\RiderProjects\\Escoba\\obj\\",
+      "outputPath": "C:\\Users\\vicru\\RiderProjects\\La-Escoba-Cards-Game-\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vicru\\AppData\\Roaming\\NuGet\\NuGet.Config"
