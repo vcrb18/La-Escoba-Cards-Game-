@@ -3,7 +3,7 @@ namespace Servidor;
 public class Carta
 {
     private string _pinta;
-    public string _valor;
+    private string _valor;
 
     public Carta(string pinta, string valor)
     {
@@ -16,5 +16,15 @@ public class Carta
         string valorToString = _valor.ToString();
         string descripcionCarta = valorToString + "_" + _pinta;
         return descripcionCarta;
+    }
+
+    public string Pinta
+    {
+        get { return _pinta; }
+    }
+
+    public string Valor
+    {
+        get { return _valor; }
     }
 }

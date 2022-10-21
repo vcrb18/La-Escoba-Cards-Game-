@@ -1,0 +1,5 @@
+C:\Users\vicru\RiderProjects\La-Escoba-Cards-Game-\obj\Debug\net6.0\Escoba.csproj.AssemblyReference.cache
+C:\Users\vicru\RiderProjects\La-Escoba-Cards-Game-\obj\Debug\net6.0\Escoba.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vicru\RiderProjects\La-Escoba-Cards-Game-\obj\Debug\net6.0\Escoba.AssemblyInfoInputs.cache
+C:\Users\vicru\RiderProjects\La-Escoba-Cards-Game-\obj\Debug\net6.0\Escoba.AssemblyInfo.cs
+C:\Users\vicru\RiderProjects\La-Escoba-Cards-Game-\obj\Debug\net6.0\Escoba.csproj.CoreCompileInputs.cache
