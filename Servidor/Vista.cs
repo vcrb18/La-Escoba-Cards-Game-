@@ -28,6 +28,7 @@ public class Vista
     // Arreglar!
     public Carta MostrarManoJugador(Jugador jugador)
     {
+        Console.WriteLine("\nMano Jugador:");
         List<Carta> manoJugador = jugador.Mano;
         for (int i = 1; i < manoJugador.Count + 1; i++)
         {
@@ -37,7 +38,7 @@ public class Vista
         Console.WriteLine("¿Qué carta quieres bajar?");
         Console.WriteLine($"(Ingresa un número entre 1 y {manoJugador.Count}");
         int nrCartaEscogida = PedirJugada(1, manoJugador.Count);
-        return manoJugador[nrCartaEscogida];
+        return manoJugador[nrCartaEscogida - 1];
     }
 
     public int PedirJugada(int minValue, int maxValue)
@@ -61,7 +62,7 @@ public class Vista
 
     private void JugadorSeLlevaLasCartas(Jugador jugador ,Jugada jugada)
     {
-        Console.WriteLine($"Jugador {jugador._id} se lleva las siguientes cartas: {MostrarEscoba(jugada.Escoba())}");
+        // Console.WriteLine($"Jugador {jugador._id} se lleva las siguientes cartas: {MostrarEscoba(jugada.Escoba())}");
         Console.WriteLine($"Jugador {jugador._id} se lleva las siguientes cartas: {jugada.Escoba()}");
     }
 

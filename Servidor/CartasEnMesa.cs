@@ -23,10 +23,32 @@ public class CartasEnMesa
         List<int> listaDeValores = new List<int>();
         foreach (var carta in _cartasEnMesa)
         {
-            int valor = Convert.ToInt32(carta.Valor);
+            int valor = ConvierteValorAInt(carta.Valor);
             listaDeValores.Add(valor);
         }
         return listaDeValores;
     }
-    
+
+    public int ConvierteValorAInt(string valor)
+    {
+        Dictionary<string, int> dictionaryStringToInt = hashValorCarta();
+        return dictionaryStringToInt[valor];
+    }
+
+    public Dictionary<string, int> hashValorCarta()
+    {
+        Dictionary<string, int> dictionaryStringToInt = new Dictionary<string, int>();
+        dictionaryStringToInt.Add("1", 1);
+        dictionaryStringToInt.Add("2", 2);
+        dictionaryStringToInt.Add("3", 3);
+        dictionaryStringToInt.Add("4", 4);
+        dictionaryStringToInt.Add("5", 5);
+        dictionaryStringToInt.Add("6", 6);
+        dictionaryStringToInt.Add("7", 7);
+        dictionaryStringToInt.Add("Sota", 8);
+        dictionaryStringToInt.Add("Caballo", 9);
+        dictionaryStringToInt.Add("Rey", 10);
+        return dictionaryStringToInt;
+    }
+
 }
