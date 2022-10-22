@@ -5,7 +5,7 @@ public class Jugador
     private List<Carta> _mano = new List<Carta>();
     private int _puntaje = 0;
     public int _id;
-    private List<Carta> _cartasEscoba = new List<Carta>();
+    private List<Escoba> _listaDeEscobas = new List<Escoba>();
 
     public Jugador(int id)
     {
