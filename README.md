@@ -8,9 +8,9 @@ Second big Homework for Detailed Design in Software course.
 - 3-4 horas
 
 #### Dia 3: 22-10-2022
-- 1:20 horas +
+- 1:20 horas + 45 min
 
 NO OLVIDAR:
     - Caso borde inicial
-    - Al acabar la mano (una vez jugadas todas las cartas de la baraja), las cartas que queden en el centro se las
-lleva el ´ultimo jugador que haya logrado llevarse cartas en su turno.
+    - Al acabar la mano (una vez jugadas todas las cartas de la baraja), las cartas que queden en el centro se las lleva el ´ultimo jugador que haya logrado llevarse cartas en su turno.
+    - COntar puntos
