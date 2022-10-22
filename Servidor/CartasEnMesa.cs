@@ -53,7 +53,9 @@ public class CartasEnMesa
 
     public void AgregarCarta(Carta carta)
     {
+        // Console.WriteLine($"Cartas en mesa antes de bajar: {_cartasEnMesa.Count}");
         _cartasEnMesa.Add(carta);
+        // Console.WriteLine($"Cartas en mesa despues de bajar: {_cartasEnMesa.Count}");
     }
 
     public void SacarCartas(List<Carta> cartas)
@@ -62,6 +64,11 @@ public class CartasEnMesa
         {
             _cartasEnMesa.Remove(carta);
         }
+    }
+
+    public void CuantasCartasHayEnLaMesa()
+    {
+        Console.WriteLine($"Cartas en la mesa: {_cartasEnMesa.Count}");
     }
 
 }

@@ -8,6 +8,7 @@ public class Juego
     private int _target = 15;
     private Jugadores _jugadores;
     private int _idJugadorTurno = 0;
+    private int _idUltimoJugadorEnLlevarseLasCartas;
     private MazoCartas _mazoCartas;
     private CartasEnMesa _cartasEnMesa;
     private Vista _vista = new Vista();
@@ -39,7 +40,6 @@ public class Juego
             {
                 JugarTurno();
                 CambiarTurno();
-                break;
             }
             break;
         }
@@ -57,17 +57,28 @@ public class Juego
 
     private bool EsFinMazo()
     {
-        return false;
+        if (_mazoCartas.SeAcabaronLasCartas())
+        {
+            // las cartas que queden en el centro se las
+            // lleva el ´ultimo jugador que haya logrado llevarse cartas en su turno
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void JugarTurno()
     {
+        SiNoTienenCartasSeReparte();
         Jugador jugador = _jugadores.ObtenerJugador(_idJugadorTurno);
         _vista.MostrarQuienJuega(jugador);
         _vista.MostrarMesaActual(_cartasEnMesa);
         Carta cartaAJugar = _vista.MostrarManoJugador(jugador);
         JugarTurnoJugador(cartaAJugar);
         ResetearJugadas();
+        
     }
 
 
@@ -100,11 +111,10 @@ public class Juego
         _cartasEnMesa.AgregarCarta(carta);
     }
 
-
-    // SACAR CARTAS DE LA MESA
     private void JugarEscoba(Jugada jugada)
     {
         Jugador jugador = _jugadores.ObtenerJugador(_idJugadorTurno);
+        GuardarUltimoJugadorEnLlevarseCartas(jugador);
         _cartasEnMesa.SacarCartas(jugada.CartasQueFormanEscoba);
         jugador.AgregarEscoba(jugada);
         _vista.JugadorSeLlevaLasCartas(jugador, jugada);
@@ -133,8 +143,12 @@ public class Juego
     private List<Carta> CartasQuePuedenSumarQuince(Carta cartaAJugar)
     {
         // int valorCartaAJugar = Convert.ToInt32(cartaAJugar.Valor);
-        List<Carta> cartasQuePuedenSumarQuince = _cartasEnMesa.CartasDeLaMesa;
+        List<Carta> cartasQuePuedenSumarQuince = new List<Carta>();
         cartasQuePuedenSumarQuince.Add(cartaAJugar);
+        foreach (var carta in _cartasEnMesa.CartasDeLaMesa)
+        {
+            cartasQuePuedenSumarQuince.Add(carta);
+        }
         return cartasQuePuedenSumarQuince;
     }
 
@@ -179,6 +193,15 @@ public class Juego
     {
         _listaDeJugadasPosibles = new List<Jugada>();
     }
+
+    private void SiNoTienenCartasSeReparte()
+    {
+        if (_jugadores.ManosVacias())
+        {
+            RepartirCartas();
+            _vista.SeVuelvenARepartirCartas();
+        }
+    }
     
     private void CambiarTurno()
     {
@@ -190,6 +213,11 @@ public class Juego
         {
             _idJugadorTurno = 0;
         }
+    }
+
+    private void GuardarUltimoJugadorEnLlevarseCartas(Jugador jugador)
+    {
+        _idUltimoJugadorEnLlevarseLasCartas = jugador._id;
     }
   
     

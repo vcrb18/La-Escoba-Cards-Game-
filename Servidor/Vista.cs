@@ -88,4 +88,11 @@ public class Vista
     {
         Console.WriteLine($"Lamentablemente, no existe una combinación de cartas en la mesa que, sumada a la carta bajada, suman 15.");
     }
+
+    public void SeVuelvenARepartirCartas()
+    {
+        Console.WriteLine("-----------------------------");
+        Console.WriteLine("Los jugadores se quedaron sin cartas");
+        Console.WriteLine("Se vuelven a repatir 3 cartas a cada uno");
+    }
 }

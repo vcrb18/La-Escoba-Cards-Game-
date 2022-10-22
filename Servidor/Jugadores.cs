@@ -12,6 +12,18 @@ public class Jugadores
             _jugadores.Add(new Jugador(i));
         }
     }
+
+    public bool ManosVacias()
+    {
+        if (_jugadores[0].ManoVacia() && _jugadores[1].ManoVacia())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     
     public Jugador ObtenerJugador(int idJugador) => _jugadores[idJugador];
 

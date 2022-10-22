@@ -80,4 +80,16 @@ public class MazoCartas
         _cartas.Remove(cartaDeArriba);
         return cartaDeArriba;
     }
+
+    public bool SeAcabaronLasCartas()
+    {
+        if (_cartas.Count == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
