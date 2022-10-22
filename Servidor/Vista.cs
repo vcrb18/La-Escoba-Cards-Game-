@@ -2,10 +2,10 @@ namespace Servidor;
 
 public class Vista
 {
-    public void MostrarInfoInicial()
+    public void MostrarInfoInicial(int repartidor, int partidor)
     {
         Console.WriteLine("---------------------");
-        Console.WriteLine("El jugador 1 comienza repartiendo cartas y el 0 parte jugando.");
+        Console.WriteLine($"El jugador {repartidor} comienza repartiendo cartas y el {partidor} parte jugando.");
     }
 
     public void MostrarQuienJuega(Jugador jugador)
@@ -94,5 +94,20 @@ public class Vista
         Console.WriteLine("-----------------------------");
         Console.WriteLine("Los jugadores se quedaron sin cartas");
         Console.WriteLine("Se vuelven a repatir 3 cartas a cada uno");
+    }
+
+    public void SeLlevaLasUltimasCartas(Jugador jugador, Jugada jugada)
+    {
+        Console.WriteLine("-----------------------------");
+        Console.WriteLine($"Se jugaron todas las cartas de la baraja");
+        Console.WriteLine($"Las cartas sobrantes en la mesa se las lleva el último jugador que haya logrado llevarse las cartas en su turno");
+        Console.WriteLine($"Este es el jugador {jugador._id}!");
+        JugadorSeLlevaLasCartas(jugador, jugada);
+    }
+
+    public void CartasGanadasEnEstaRonda()
+    {
+        Console.WriteLine("-----------------------------------");
+        Console.WriteLine("Cartas ganadas en esta ronda:");
     }
 }

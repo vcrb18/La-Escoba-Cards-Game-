@@ -11,6 +11,9 @@ Second big Homework for Detailed Design in Software course.
 - 1:20 horas + 45 min
 
 NO OLVIDAR:
+    - Al acabar la mano (una vez jugadas todas las cartas de la baraja), las cartas que queden en el centro se las lleva el ´ultimo jugador que haya logrado llevarse cartas en su turno. LISTO!
+        - Mostrar TODAS las cartas ganadas
+        - Mostrar los puntos
+
     - Caso borde inicial
-    - Al acabar la mano (una vez jugadas todas las cartas de la baraja), las cartas que queden en el centro se las lleva el ´ultimo jugador que haya logrado llevarse cartas en su turno.
     - COntar puntos

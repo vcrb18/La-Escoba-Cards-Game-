@@ -9,6 +9,8 @@ public class Juego
     private Jugadores _jugadores;
     private int _idJugadorTurno = 0;
     private int _idUltimoJugadorEnLlevarseLasCartas;
+    private int _idJugadorRepartidor = 0;
+    private int _idJugadorPartidor = 1;
     private MazoCartas _mazoCartas;
     private CartasEnMesa _cartasEnMesa;
     private Vista _vista = new Vista();
@@ -29,19 +31,27 @@ public class Juego
     private void RepartirCartas() => _jugadores.RepartirCartas(_mazoCartas);
     private void PonerMesa() => _cartasEnMesa = new CartasEnMesa(_mazoCartas);
 
+
     public void Jugar()
     {
         while (!EsFinJuego())
         {
-            // Caso Borde de Escoba en la Mesa
-            // 
-            _vista.MostrarInfoInicial();
-            while (!EsFinMazo())
+            if (_mazoCartas.SeAcabaronLasCartas() && _jugadores.ManosVacias())
             {
+                NuevoJuego();
+            }
+            
+            /////////////////////////////////////
+            // Caso Borde de Escoba en la Mesa //
+            /////////////////////////////////////
+            _vista.MostrarInfoInicial(_idJugadorRepartidor, _idJugadorPartidor);
+            while (!EsFinMazoYManos())
+            {
+                _mazoCartas.CuantasCartasQuedan();
                 JugarTurno();
                 CambiarTurno();
             }
-            break;
+            // break;
         }
     }
 
@@ -55,13 +65,23 @@ public class Juego
         return false;
     }
 
-    private bool EsFinMazo()
+    private bool EsFinMazoYManos()
     {
         if (_mazoCartas.SeAcabaronLasCartas())
         {
-            // las cartas que queden en el centro se las
-            // lleva el ´ultimo jugador que haya logrado llevarse cartas en su turno
-            return true;
+            if (_jugadores.ManosVacias())
+            {
+                Console.WriteLine("ENTRE EN EL IF!!!!");
+                UltimaJugadaDelMazo();
+                // NuevoJuego();
+                _vista.CartasGanadasEnEstaRonda();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
         else
         {
@@ -69,6 +89,48 @@ public class Juego
         }
     }
 
+    public void NuevoJuego()
+    {
+        CambiarRepartidorYJugador();
+        CrearMazo();
+        BarajarMazo();
+        RepartirCartas();
+        PonerMesa();
+    }
+
+    public void CambiarRepartidorYJugador()
+    {
+        CambiarRepartidor();
+        CambiarJugador();
+    }
+
+    public void CambiarRepartidor()
+    {
+        if (_idJugadorRepartidor == 0)
+        {
+            _idJugadorRepartidor = 1;
+        }
+        else
+        {
+            _idJugadorRepartidor = 0;
+        }
+    }
+
+    public void CambiarJugador()
+    {
+        if (_idJugadorPartidor == 0)
+        {
+            _idJugadorPartidor = 1;
+            _idJugadorTurno = 1;
+        }
+        else
+        {
+            _idJugadorPartidor = 0;
+            _idJugadorTurno = 0;
+        }
+    }
+    
+    
     private void JugarTurno()
     {
         SiNoTienenCartasSeReparte();
@@ -94,13 +156,13 @@ public class Juego
         else if (_listaDeJugadasPosibles.Count == 1)
         {
             BajarCarta(cartaAJugar);
-            JugarEscoba(_listaDeJugadasPosibles[0]);
+            JugarJugada(_listaDeJugadasPosibles[0]);
         }
         else
         {
             BajarCarta(cartaAJugar);
             int idJugada = _vista.PedirJugada(_listaDeJugadasPosibles);
-            JugarEscoba(_listaDeJugadasPosibles[idJugada]);
+            JugarJugada(_listaDeJugadasPosibles[idJugada]);
         }
     }
 
@@ -111,12 +173,12 @@ public class Juego
         _cartasEnMesa.AgregarCarta(carta);
     }
 
-    private void JugarEscoba(Jugada jugada)
+    private void JugarJugada(Jugada jugada)
     {
         Jugador jugador = _jugadores.ObtenerJugador(_idJugadorTurno);
         GuardarUltimoJugadorEnLlevarseCartas(jugador);
-        _cartasEnMesa.SacarCartas(jugada.CartasQueFormanEscoba);
-        jugador.AgregarEscoba(jugada);
+        jugador.AgregarJugada(jugada);
+        _cartasEnMesa.SacarCartas(jugada.CartasQueFormanJugada);
         _vista.JugadorSeLlevaLasCartas(jugador, jugada);
         _vista.MostrarEscoba(jugador);
     }
@@ -185,7 +247,7 @@ public class Juego
 
     private void GuardaJugada(List<Carta> cartasQueSumanQuince)
     {
-        Jugada jugadaPosible = new Jugada(cartasQueSumanQuince);
+        Jugada jugadaPosible = new Jugada(cartasQueSumanQuince, true);
         _listaDeJugadasPosibles.Add(jugadaPosible);
     }
     
@@ -198,9 +260,33 @@ public class Juego
     {
         if (_jugadores.ManosVacias())
         {
-            RepartirCartas();
-            _vista.SeVuelvenARepartirCartas();
+            if (_mazoCartas.SeAcabaronLasCartas())
+            {
+                // NUNCA VA A ENTRAR ACA
+                UltimaJugadaDelMazo();
+                // NuevoJuego();
+            }
+            else
+            {
+                RepartirCartas();
+                _vista.SeVuelvenARepartirCartas();
+            }
         }
+    }
+
+    private void UltimaJugadaDelMazo()
+    {
+        List<Carta> cartasMesa = _cartasEnMesa.CartasDeLaMesa;
+        
+        
+        _cartasEnMesa.CuantasCartasHayEnLaMesa();
+        Jugada cartasSobrantes = new Jugada(cartasMesa, false);
+        
+
+        Jugador jugadorEnLlevarseLasCartas = _jugadores.ObtenerJugador(_idUltimoJugadorEnLlevarseLasCartas);
+        jugadorEnLlevarseLasCartas.AgregarJugada(cartasSobrantes);
+        _vista.SeLlevaLasUltimasCartas(jugadorEnLlevarseLasCartas, cartasSobrantes);
+        _cartasEnMesa.SacarCartas(cartasSobrantes.CartasQueFormanJugada);
     }
     
     private void CambiarTurno()

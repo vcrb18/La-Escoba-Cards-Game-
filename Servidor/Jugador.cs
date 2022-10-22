@@ -5,7 +5,7 @@ public class Jugador
     private List<Carta> _mano = new List<Carta>();
     private int _puntaje = 0;
     public int _id; // ARREGLAR
-    private List<Jugada> _listaDeEscobas = new List<Jugada>();
+    private List<Jugada> _listaDeJugadas = new List<Jugada>();
 
     public Jugador(int id)
     {
@@ -22,9 +22,9 @@ public class Jugador
         get { return _mano; }
     }
 
-    public void AgregarEscoba(Jugada jugada)
+    public void AgregarJugada(Jugada jugada)
     {
-        _listaDeEscobas.Add(jugada);
+        _listaDeJugadas.Add(jugada);
     }
 
     public void SacarCartaDeMano(Carta carta)

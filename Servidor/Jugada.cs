@@ -3,13 +3,15 @@ namespace Servidor;
 public class Jugada
 {
     private List<Carta> _cartasQueFormanEscoba;
+    private bool _esEscoba;
 
-    public Jugada(List<Carta> cartasQueFormanEscoba)
+    public Jugada(List<Carta> cartasQueFormanEscoba, bool esEscoba)
     {
         _cartasQueFormanEscoba = cartasQueFormanEscoba;
+        _esEscoba = esEscoba;
     }
 
-    public List<Carta> CartasQueFormanEscoba
+    public List<Carta> CartasQueFormanJugada
     {
         get { return _cartasQueFormanEscoba; }
     }

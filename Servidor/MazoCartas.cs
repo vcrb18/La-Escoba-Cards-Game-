@@ -92,4 +92,9 @@ public class MazoCartas
             return false;
         }
     }
+
+    public void CuantasCartasQuedan()
+    {
+        Console.WriteLine($"Quedan {_cartas.Count} cartas en el mazo");
+    }
 }

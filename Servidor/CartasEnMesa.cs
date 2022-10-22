@@ -60,7 +60,7 @@ public class CartasEnMesa
 
     public void SacarCartas(List<Carta> cartas)
     {
-        foreach (var carta in cartas)
+        foreach (var carta in cartas.ToList())
         {
             _cartasEnMesa.Remove(carta);
         }
