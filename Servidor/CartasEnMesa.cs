@@ -51,4 +51,17 @@ public class CartasEnMesa
         return dictionaryStringToInt;
     }
 
+    public void AgregarCarta(Carta carta)
+    {
+        _cartasEnMesa.Add(carta);
+    }
+
+    public void SacarCartas(List<Carta> cartas)
+    {
+        foreach (var carta in cartas)
+        {
+            _cartasEnMesa.Remove(carta);
+        }
+    }
+
 }

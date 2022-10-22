@@ -2,25 +2,26 @@ namespace Servidor;
 
 public class Jugada
 {
-    private Carta _cartaAJugar;
-    private List<Carta> _cartasCombinadas;
+    private List<Carta> _cartasQueFormanEscoba;
 
-    public Carta CartaAJugar
+    public Jugada(List<Carta> cartasQueFormanEscoba)
     {
-        get { return _cartaAJugar; }
+        _cartasQueFormanEscoba = cartasQueFormanEscoba;
     }
 
-    public Jugada(Carta cartaAJugar)
+    public List<Carta> CartasQueFormanEscoba
     {
-        _cartaAJugar = cartaAJugar;
+        get { return _cartasQueFormanEscoba; }
     }
 
-    public List<Carta> Escoba()
+    public override string ToString()
     {
-        List<Carta> cartasEscoba = _cartasCombinadas;
-        cartasEscoba.Add(_cartaAJugar);
-        return cartasEscoba;
+        string s = "";
+        foreach (var carta in _cartasQueFormanEscoba)
+        {
+            s += $"{carta.ToString()}, ";
+        }
+
+        return s;
     }
-
-
 }

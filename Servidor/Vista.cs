@@ -60,17 +60,32 @@ public class Vista
         return numero;
     }
 
-    private void JugadorSeLlevaLasCartas(Jugador jugador ,Jugada jugada)
+    public int PedirJugada(List<Jugada> jugadas)
     {
-        // Console.WriteLine($"Jugador {jugador._id} se lleva las siguientes cartas: {MostrarEscoba(jugada.Escoba())}");
-        Console.WriteLine($"Jugador {jugador._id} se lleva las siguientes cartas: {jugada.Escoba()}");
+        Console.WriteLine($"Hay {jugadas.Count} jugadas en la mesa:");
+        for (int i = 1; i < jugadas.Count + 1; i++)
+        {
+            Console.WriteLine($"{i}- {jugadas[i - 1].ToString()}");
+        }
+
+        int idJugada = PedirNumeroValido(1, jugadas.Count);
+        return idJugada - 1;
     }
 
-    private void MostrarEscoba(List<Carta> cartasEscoba)
+
+    public void JugadorSeLlevaLasCartas(Jugador jugador ,Jugada jugada)
     {
-        foreach (var carta in cartasEscoba)
-        {
-            Console.WriteLine($"{carta.Valor}_{carta.Pinta}");
-        }
+        // Console.WriteLine($"Jugador {jugador._id} se lleva las siguientes cartas: {MostrarEscoba(jugada.Escoba())}");
+        Console.WriteLine($"Jugador {jugador._id} se lleva las siguientes cartas: {jugada.ToString()}");
+    }
+
+    public void MostrarEscoba(Jugador jugador)
+    {
+        Console.WriteLine($"ESCOBA!************************************************** JUGADOR {jugador._id}");
+    }
+
+    public void NoHayEscoba()
+    {
+        Console.WriteLine($"Lamentablemente, no existe una combinación de cartas en la mesa que, sumada a la carta bajada, suman 15.");
     }
 }

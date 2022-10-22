@@ -58,7 +58,7 @@ public class MazoCartas
         while (numCartas > 1)
         {
             numCartas--;
-            int k = generadorRandom.Generar();
+            int k = generadorRandom.Generar(numCartas);
             Carta value = _cartas[k];
             _cartas[k] = _cartas[numCartas];
             _cartas[numCartas] = value;
