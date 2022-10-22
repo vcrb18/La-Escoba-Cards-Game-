@@ -105,9 +105,17 @@ public class Vista
         JugadorSeLlevaLasCartas(jugador, jugada);
     }
 
-    public void CartasGanadasEnEstaRonda()
+    public void CartasGanadasEnEstaRonda(Jugadores jugadores)
     {
         Console.WriteLine("-----------------------------------");
         Console.WriteLine("Cartas ganadas en esta ronda:");
+        jugadores.MostrarCartasGanadas();
+        Console.WriteLine("-----------------------------------");
+    }
+
+    public void TotalPuntosGanadosJugadores(Jugadores jugadores)
+    {
+        Console.WriteLine("-----------------------------------");
+        Console.WriteLine("PUNTOS!!!!!!!!!!!!!");
     }
 }

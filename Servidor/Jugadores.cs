@@ -34,5 +34,19 @@ public class Jugadores
             mazoCartas.DarCartasIniciales(jugador);
         }   
     }
+
+    public void MostrarCartasGanadas()
+    {
+        foreach (var jugador in _jugadores)
+        {
+            Console.WriteLine($"    Jugador {jugador._id}:");
+            jugador.MostrarCartasGanadas();
+        }
+    }
+
+    public List<Jugador> ObtenerJugadores
+    {
+        get { return _jugadores; }
+    }
     
 }

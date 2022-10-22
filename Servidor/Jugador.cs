@@ -44,4 +44,12 @@ public class Jugador
             return false;
         }
     }
+
+    public void MostrarCartasGanadas()
+    {
+        foreach (var jugada in _listaDeJugadas)
+        {
+            Console.WriteLine(jugada);
+        }
+    }
 }

@@ -16,4 +16,3 @@ NO OLVIDAR:
         - Mostrar los puntos
 
     - Caso borde inicial
-    - COntar puntos

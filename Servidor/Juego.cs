@@ -71,10 +71,10 @@ public class Juego
         {
             if (_jugadores.ManosVacias())
             {
-                Console.WriteLine("ENTRE EN EL IF!!!!");
                 UltimaJugadaDelMazo();
                 // NuevoJuego();
-                _vista.CartasGanadasEnEstaRonda();
+                _vista.CartasGanadasEnEstaRonda(_jugadores);
+                _vista.TotalPuntosGanadosJugadores(_jugadores);
                 return true;
             }
             else
