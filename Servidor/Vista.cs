@@ -116,6 +116,10 @@ public class Vista
     public void TotalPuntosGanadosJugadores(Jugadores jugadores)
     {
         Console.WriteLine("-----------------------------------");
-        Console.WriteLine("PUNTOS!!!!!!!!!!!!!");
+        Console.WriteLine("Total puntos ganados");
+        foreach (var jugador in jugadores.ObtenerJugadores)
+        {
+            Console.WriteLine($"    Jugador {jugador._id}: {jugador.Puntaje}");
+        }
     }
 }

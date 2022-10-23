@@ -72,7 +72,7 @@ public class Juego
             if (_jugadores.ManosVacias())
             {
                 UltimaJugadaDelMazo();
-                // NuevoJuego();
+                _jugadores.CalcularPuntajes();
                 _vista.CartasGanadasEnEstaRonda(_jugadores);
                 _vista.TotalPuntosGanadosJugadores(_jugadores);
                 return true;

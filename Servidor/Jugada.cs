@@ -26,4 +26,76 @@ public class Jugada
 
         return s;
     }
+
+    public bool EsEscoba
+    {
+        get { return _esEscoba; }
+    }
+
+    public bool TieneSieteDeOro()
+    {
+        bool tieneSieteDeOro = false;
+        foreach (var carta in _cartasQueFormanEscoba)
+        {
+            if (carta.Pinta == "Oro")
+            {
+                tieneSieteDeOro = true;
+            }
+        }
+
+        return tieneSieteDeOro;
+    }
+
+    public bool TieneMayoriaDeSietes()
+    {
+        bool tieneMayoriaDeSietes = false;
+        int numeroDeSietes = 0;
+        foreach (var carta in _cartasQueFormanEscoba)
+        {
+            if (carta.Valor == "7")
+            {
+                numeroDeSietes += 1;
+            }
+        }
+
+        if (numeroDeSietes >= 2)
+        {
+            tieneMayoriaDeSietes = true;
+        }
+
+        return tieneMayoriaDeSietes;
+    }
+
+    public bool TieneMayoriaDeCartas()
+    {
+        bool tieneMayoriaDeCartas = false;
+        int numeroDeCartas = _cartasQueFormanEscoba.Count;
+        if (numeroDeCartas >= 20)
+        {
+            tieneMayoriaDeCartas = true;
+        }
+
+        return tieneMayoriaDeCartas;
+    }
+
+    public bool TieneMayoriaDeOros()
+    {
+        bool tieneMayoriaDeOros = false;
+        int numeroDeOros = 0;
+        foreach (var carta in _cartasQueFormanEscoba)
+        {
+            if (carta.Pinta == "Oro")
+            {
+                numeroDeOros += 1;
+            }
+        }
+
+        if (numeroDeOros >= 5)
+        {
+            tieneMayoriaDeOros = true;
+        }
+
+        return tieneMayoriaDeOros;
+    }
+    
 }

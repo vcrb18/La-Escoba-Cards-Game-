@@ -17,6 +17,11 @@ public class Jugador
         _mano.Add(carta);
     }
 
+    public int Puntaje
+    {
+        get { return _puntaje;  }
+    }
+
     public List<Carta> Mano
     {
         get { return _mano; }
@@ -51,5 +56,121 @@ public class Jugador
         {
             Console.WriteLine(jugada);
         }
+    }
+
+    public void CalcularPuntaje()
+    {
+        PuntajePorEscoba();
+        PuntajePorMayoriaDeOros();
+        PuntajePorMayoriaDeSietes();
+        PuntajePorMayoriaDeCartas();
+        PuntajePorMayoriaDeOros();
+    }
+
+    private void PuntajePorEscoba()
+    {
+        _puntaje += NumeroDeEscobas();
+    }
+
+    private void PuntajePorSieteDeOro()
+    {
+        if (TieneSieteDeOro())
+        {
+            _puntaje++;
+        }
+    }
+
+    private void PuntajePorMayoriaDeSietes()
+    {
+        if (TieneMayoriaDeSietes())
+        {
+            _puntaje++;
+        }
+    }
+
+    private void PuntajePorMayoriaDeCartas()
+    {
+        if (TieneMayoriaDeCartas())
+        {
+            _puntaje++;
+        }
+    }
+
+    private void PuntajePorMayoriaDeOros()
+    {
+        if (TieneMayoriaDeOros())
+        {
+            _puntaje++;
+        }
+    }
+
+    public int NumeroDeEscobas()
+    {
+        int numeroDeEscobas = 0;
+        foreach (var jugada in _listaDeJugadas)
+        {
+            if (jugada.EsEscoba)
+            {
+                numeroDeEscobas++;
+            }
+        }
+
+        return numeroDeEscobas;
+    }
+
+    public bool TieneSieteDeOro()
+    {
+        bool tieneSieteDeOro = false;
+        foreach (var jugada in _listaDeJugadas)
+        {
+            if (jugada.TieneSieteDeOro())
+            {
+                tieneSieteDeOro = true;
+            }
+        }
+
+        return tieneSieteDeOro;
+    }
+
+    public bool TieneMayoriaDeSietes()
+    {
+        bool tieneMayoriaDeSietes = false;
+        foreach (var jugada in _listaDeJugadas)
+        {
+            if (jugada.TieneMayoriaDeSietes())
+            {
+                tieneMayoriaDeSietes = true;
+            }
+        }
+
+        return tieneMayoriaDeSietes;
+    }
+
+    public bool TieneMayoriaDeCartas()
+    {
+        bool tieneMayoriaDeCartas = false;
+        foreach (var jugada in _listaDeJugadas)
+        {
+            if (jugada.TieneMayoriaDeCartas())
+            {
+                tieneMayoriaDeCartas = true;
+            }
+        }
+
+        return tieneMayoriaDeCartas;
+    }
+
+    public bool TieneMayoriaDeOros()
+    {
+        bool tieneMayoriaDeOros = false;
+        foreach (var jugada in _listaDeJugadas)
+        {
+            if (jugada.TieneMayoriaDeOros())
+            {
+                tieneMayoriaDeOros = true;
+            }
+        }
+
+        return tieneMayoriaDeOros;
     }
 }

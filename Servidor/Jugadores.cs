@@ -48,5 +48,13 @@ public class Jugadores
     {
         get { return _jugadores; }
     }
+
+    public void CalcularPuntajes()
+    {
+        foreach (var jugador in _jugadores)
+        {
+            jugador.CalcularPuntaje();
+        }
+    }
     
 }

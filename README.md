@@ -13,3 +13,10 @@ Second big Homework for Detailed Design in Software course.
 NO OLVIDAR:  
     - Mostrar los puntos
     - Caso borde inicial
+
+PUNTOS:
+    - Por cada Escoba
+    - Siete de oro
+    - nr de sietes >= 2
+    - nr de cartas >= 20
+    - nr de oros >= 5
