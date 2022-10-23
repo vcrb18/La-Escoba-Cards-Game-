@@ -8,10 +8,9 @@ Second big Homework for Detailed Design in Software course.
 - 3-4 horas
 
 #### Dia 3: 22-10-2022
-- 1:20 horas + 1:45 horas
+- 1:20 horas + 2:20 horas
 
 NO OLVIDAR:  
-    - Mostrar los puntos
     - Caso borde inicial
 
 PUNTOS:
