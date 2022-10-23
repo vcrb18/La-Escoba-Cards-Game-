@@ -127,11 +127,38 @@ public class Juego
         _vista.MostrarEscoba(jugador);
     }
 
+    // Arreglar funcion
     private bool EsFinJuego()
     {
-        
-        return false;
+        if (EsFinMazoYManos())
+        {
+            _vista.FinalDePartida();
+            List<Jugador> listaJugadoresGanadores = _jugadores.ObtenerListaJugadoresGanadores();
+            if (listaJugadoresGanadores.Count == 1)
+            {
+                int idJugadorGanador = _jugadores.ObtenerIdGanador(listaJugadoresGanadores);
+                Jugador jugadorGanador = _jugadores.ObtenerJugador(idJugadorGanador);
+                _vista.GanaUnJugador(jugadorGanador);
+            }
+            else if (listaJugadoresGanadores.Count == 2)
+            {
+                int idJugadorGanadorUno = _jugadores.ObtenerIdGanador(listaJugadoresGanadores);
+                Jugador jugadorGanadorUno = _jugadores.ObtenerJugador(idJugadorGanadorUno);
+                
+                int idJugadorGanadorDos = _jugadores.ObtenerIdGanadorDos(listaJugadoresGanadores);
+                Jugador jugadorGanadorDos = _jugadores.ObtenerJugador(idJugadorGanadorDos);
+                
+                _vista.HuboUnEmpate(jugadorGanadorUno, jugadorGanadorDos);
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
+    
+    
 
     private bool EsFinMazoYManos()
     {

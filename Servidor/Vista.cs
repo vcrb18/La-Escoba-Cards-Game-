@@ -128,4 +128,20 @@ public class Vista
         Console.WriteLine("Las cuatro cartas depositadas sobre la mesa suman exactamente uno o dos grupos de 15");
         Console.WriteLine("Por lo tanto el jugador que reparte las cartas se lleva las cartas para sí");
     }
+
+    public void FinalDePartida()
+    {
+        Console.WriteLine("-----------------------------------");
+        Console.WriteLine("Ha llegado el final de la partida!");
+    }
+
+    public void GanaUnJugador(Jugador jugador)
+    {
+        Console.WriteLine($"El jugador {jugador._id} GANA LA PARTIDA CON {jugador.Puntaje} PUNTOS");
+    }
+
+    public void HuboUnEmpate(Jugador ganadorUno, Jugador ganadorDos)
+    {
+        Console.WriteLine($"El jugador {ganadorUno._id} EMPATÓ con el jugador {ganadorDos._id} con un total de {ganadorUno.Puntaje} Puntos.");
+    }
 }
