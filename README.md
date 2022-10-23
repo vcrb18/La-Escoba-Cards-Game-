@@ -14,8 +14,8 @@ NO OLVIDAR:
     - Caso borde inicial
 
 PUNTOS:
-    - Por cada Escoba
-    - Siete de oro
-    - nr de sietes >= 2
-    - nr de cartas >= 20
-    - nr de oros >= 5
+    - Por cada Escoba. BIEN
+    - Siete de oro. BIEN
+    - nr de sietes >= 2. BIEN
+    - nr de cartas >= 20, BIEN
+    - nr de oros >= 5. MAL

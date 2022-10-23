@@ -110,7 +110,6 @@ public class Vista
         Console.WriteLine("-----------------------------------");
         Console.WriteLine("Cartas ganadas en esta ronda:");
         jugadores.MostrarCartasGanadas();
-        Console.WriteLine("-----------------------------------");
     }
 
     public void TotalPuntosGanadosJugadores(Jugadores jugadores)

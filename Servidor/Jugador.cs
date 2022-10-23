@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+
 namespace Servidor;
 
 public class Jugador
@@ -33,10 +35,10 @@ public class Jugador
 
     public void AgregarJugada(Jugada jugada)
     {
-        Console.WriteLine($"Se esta agregando la jugada {jugada}"); // PERO DP NO APARECE
-        Console.WriteLine($"Primera carta: {jugada.CartasQueFormanJugada[0]}. Segunda carta: {jugada.CartasQueFormanJugada[1]}");
+        // Console.WriteLine($"Se esta agregando la jugada {jugada}"); // PERO DP NO APARECE
+        // Console.WriteLine($"Primera carta: {jugada.CartasQueFormanJugada[0]}. Segunda carta: {jugada.CartasQueFormanJugada[1]}");
         _listaDeJugadas.Add(jugada);
-        Console.WriteLine($"Vemos la jugada: {_listaDeJugadas[_listaDeJugadas.Count - 1]}");
+        // Console.WriteLine($"Vemos lak jugada: {_listaDeJugadas[_listaDeJugadas.Count - 1]}");
     }
 
     public void SacarCartaDeMano(Carta carta)
@@ -61,14 +63,14 @@ public class Jugador
     {
         foreach (var jugada in _listaDeJugadas)
         {
-            Console.WriteLine($"JUGADA: {jugada}. Son {jugada.CartasQueFormanJugada.Count} cartas");
+            Console.WriteLine($"    {jugada}");
         }
     }
 
     public void CalcularPuntaje()
     {
         PuntajePorEscoba();
-        PuntajePorMayoriaDeOros();
+        PuntajePorSieteDeOro();
         PuntajePorMayoriaDeSietes();
         PuntajePorMayoriaDeCartas();
         PuntajePorMayoriaDeOros();
@@ -93,23 +95,28 @@ public class Jugador
         {
             _puntaje++;
         }
-    }
 
+    }
     private void PuntajePorMayoriaDeCartas()
     {
         if (TieneMayoriaDeCartas())
         {
             _puntaje++;
         }
-    }
 
+    }
+    
     private void PuntajePorMayoriaDeOros()
     {
         if (TieneMayoriaDeOros())
         {
             _puntaje++;
         }
+
     }
+
+
+
 
     public int NumeroDeEscobas()
     {
@@ -156,29 +163,58 @@ public class Jugador
     public bool TieneMayoriaDeCartas()
     {
         bool tieneMayoriaDeCartas = false;
+        int numCartas = 0;
         foreach (var jugada in _listaDeJugadas)
         {
-            if (jugada.TieneMayoriaDeCartas())
-            {
-                tieneMayoriaDeCartas = true;
-            }
+            numCartas += jugada.NumeroDeCartasDeJugada;
         }
 
+        if (TieneMasDeVeinteCartas(numCartas))
+        {
+            tieneMayoriaDeCartas = true;
+        }
         return tieneMayoriaDeCartas;
+    }
+
+    public bool TieneMasDeVeinteCartas(int numCartas)
+    {
+        if (numCartas >= 20)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public bool TieneMayoriaDeOros()
     {
         bool tieneMayoriaDeOros = false;
+        int numOros = 0;
         foreach (var jugada in _listaDeJugadas)
         {
-            if (jugada.TieneMayoriaDeOros())
-            {
-                tieneMayoriaDeOros = true;
-            }
+            numOros += jugada.NumeroDeOrosEnJugada();
+        }
+
+        if (TieneMasDeCincoOros(numOros))
+        {
+            tieneMayoriaDeOros = true;
         }
 
         return tieneMayoriaDeOros;
+    }
+
+    public bool TieneMasDeCincoOros(int numOros)
+    {
+        if (numOros >= 5)
+        {
+            return true; 
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public int NumeroDeJugadas()

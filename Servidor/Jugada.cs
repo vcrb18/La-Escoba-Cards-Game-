@@ -31,13 +31,18 @@ public class Jugada
     {
         get { return _esEscoba; }
     }
+    
+    public int NumeroDeCartasDeJugada
+    {
+        get { return _cartasQueFormanEscoba.Count; }
+    }
 
     public bool TieneSieteDeOro()
     {
         bool tieneSieteDeOro = false;
         foreach (var carta in _cartasQueFormanEscoba)
         {
-            if (carta.Pinta == "Oro")
+            if (carta.Pinta == "Oro" && carta.Valor == "7")
             {
                 tieneSieteDeOro = true;
             }
@@ -66,21 +71,8 @@ public class Jugada
         return tieneMayoriaDeSietes;
     }
 
-    public bool TieneMayoriaDeCartas()
+    public int NumeroDeOrosEnJugada()
     {
-        bool tieneMayoriaDeCartas = false;
-        int numeroDeCartas = _cartasQueFormanEscoba.Count;
-        if (numeroDeCartas >= 20)
-        {
-            tieneMayoriaDeCartas = true;
-        }
-
-        return tieneMayoriaDeCartas;
-    }
-
-    public bool TieneMayoriaDeOros()
-    {
-        bool tieneMayoriaDeOros = false;
         int numeroDeOros = 0;
         foreach (var carta in _cartasQueFormanEscoba)
         {
@@ -90,12 +82,7 @@ public class Jugada
             }
         }
 
-        if (numeroDeOros >= 5)
-        {
-            tieneMayoriaDeOros = true;
-        }
-
-        return tieneMayoriaDeOros;
+        return numeroDeOros;
     }
     
 }
