@@ -11,6 +11,6 @@ Second big Homework for Detailed Design in Software course.
 - 1:20 horas + 2:20 horas = 3:40 horas
 
 #### Dia 4: 23-10-2022
-- 2:04 horas + 
+- 2:04 horas + 0:16 horas
 
 - Final de la Partida!!!
