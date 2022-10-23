@@ -71,9 +71,17 @@ public class Juego
         {
             if (_jugadores.ManosVacias())
             {
+                Jugador jugadorEnLlevarseLasCartas = _jugadores.ObtenerJugador(_idUltimoJugadorEnLlevarseLasCartas);
+                Console.WriteLine($"Jugadas pre Ultima jugada jugador {jugadorEnLlevarseLasCartas._id}: {jugadorEnLlevarseLasCartas.NumeroDeJugadas()}");
+                Console.WriteLine($"VEMOS LA ULTIMA JUGADA: {jugadorEnLlevarseLasCartas.ListaDeJugadas[jugadorEnLlevarseLasCartas.ListaDeJugadas.Count - 1]}");
                 UltimaJugadaDelMazo();
-                _jugadores.CalcularPuntajes();
+                Console.WriteLine($"Jugadas post Ultima jugada jugador {jugadorEnLlevarseLasCartas._id}: {jugadorEnLlevarseLasCartas.NumeroDeJugadas()}");
+                Console.WriteLine($"VEMOS LA ULTIMA JUGADA: {jugadorEnLlevarseLasCartas.ListaDeJugadas[jugadorEnLlevarseLasCartas.ListaDeJugadas.Count - 1]}");
                 _vista.CartasGanadasEnEstaRonda(_jugadores);
+
+                
+                
+                _jugadores.CalcularPuntajes();
                 _vista.TotalPuntosGanadosJugadores(_jugadores);
                 return true;
             }
@@ -263,7 +271,8 @@ public class Juego
             if (_mazoCartas.SeAcabaronLasCartas())
             {
                 // NUNCA VA A ENTRAR ACA
-                UltimaJugadaDelMazo();
+                
+                // UltimaJugadaDelMazo();
                 // NuevoJuego();
             }
             else
@@ -276,18 +285,20 @@ public class Juego
 
     private void UltimaJugadaDelMazo()
     {
+        Jugador jugadorEnLlevarseLasCartas = _jugadores.ObtenerJugador(_idUltimoJugadorEnLlevarseLasCartas);
+        Console.WriteLine($"1: Jugadas jugador {jugadorEnLlevarseLasCartas._id}= {jugadorEnLlevarseLasCartas.NumeroDeJugadas()}");
         List<Carta> cartasMesa = _cartasEnMesa.CartasDeLaMesa;
         
         
-        _cartasEnMesa.CuantasCartasHayEnLaMesa();
         Jugada cartasSobrantes = new Jugada(cartasMesa, false);
-        
-
-        Jugador jugadorEnLlevarseLasCartas = _jugadores.ObtenerJugador(_idUltimoJugadorEnLlevarseLasCartas);
+        Console.WriteLine($"LA JUGADA QUE NO APARECE: {cartasSobrantes}");
 
         jugadorEnLlevarseLasCartas.AgregarJugada(cartasSobrantes);
         _vista.SeLlevaLasUltimasCartas(jugadorEnLlevarseLasCartas, cartasSobrantes);
+        Console.WriteLine($"VEMOS LA ULTIMA JUGADA SI ESTA: {jugadorEnLlevarseLasCartas.ListaDeJugadas[jugadorEnLlevarseLasCartas.ListaDeJugadas.Count - 1]}");
         _cartasEnMesa.SacarCartas(cartasSobrantes.CartasQueFormanJugada);
+        Console.WriteLine($"VEMOS LA ULTIMA JUGADA NO ESTA: {jugadorEnLlevarseLasCartas.ListaDeJugadas[jugadorEnLlevarseLasCartas.ListaDeJugadas.Count - 1]}");
+
     }
     
     private void CambiarTurno()

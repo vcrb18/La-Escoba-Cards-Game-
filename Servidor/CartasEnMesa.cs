@@ -60,10 +60,20 @@ public class CartasEnMesa
 
     public void SacarCartas(List<Carta> cartas)
     {
-        foreach (var carta in cartas.ToList())
-        {
-            _cartasEnMesa.Remove(carta);
-        }
+        // List<Carta> cartasAEliminar = new List<Carta>();
+        Console.WriteLine($"Carta 1 a eliminar: {cartas[0]}");
+        Console.WriteLine($"Carta 2 a eliminar: {cartas[1]}");
+
+        List<Carta> result = _cartasEnMesa.Except(cartas).ToList();
+        _cartasEnMesa = result;
+        // https://stackoverflow.com/questions/2745544/remove-items-from-one-list-in-another
+        Console.WriteLine($"Carta 1 a eliminada: {cartas[0]}");
+        Console.WriteLine($"Carta 2 a eliminada: {cartas[1]}");
+    }
+
+    public void SacarCartaDeLaMesa(Carta carta)
+    {
+        _cartasEnMesa.Remove(carta);
     }
 
     public void CuantasCartasHayEnLaMesa()

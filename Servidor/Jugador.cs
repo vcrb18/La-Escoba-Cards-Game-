@@ -17,6 +17,10 @@ public class Jugador
         _mano.Add(carta);
     }
 
+    public List<Jugada> ListaDeJugadas
+    {
+        get { return _listaDeJugadas;  }
+    }
     public int Puntaje
     {
         get { return _puntaje;  }
@@ -30,7 +34,9 @@ public class Jugador
     public void AgregarJugada(Jugada jugada)
     {
         Console.WriteLine($"Se esta agregando la jugada {jugada}"); // PERO DP NO APARECE
+        Console.WriteLine($"Primera carta: {jugada.CartasQueFormanJugada[0]}. Segunda carta: {jugada.CartasQueFormanJugada[1]}");
         _listaDeJugadas.Add(jugada);
+        Console.WriteLine($"Vemos la jugada: {_listaDeJugadas[_listaDeJugadas.Count - 1]}");
     }
 
     public void SacarCartaDeMano(Carta carta)
@@ -55,7 +61,7 @@ public class Jugador
     {
         foreach (var jugada in _listaDeJugadas)
         {
-            Console.WriteLine(jugada);
+            Console.WriteLine($"JUGADA: {jugada}. Son {jugada.CartasQueFormanJugada.Count} cartas");
         }
     }
 
@@ -173,5 +179,10 @@ public class Jugador
         }
 
         return tieneMayoriaDeOros;
+    }
+
+    public int NumeroDeJugadas()
+    {
+        return _listaDeJugadas.Count;
     }
 }
