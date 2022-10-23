@@ -29,6 +29,7 @@ public class Jugador
 
     public void AgregarJugada(Jugada jugada)
     {
+        Console.WriteLine($"Se esta agregando la jugada {jugada}"); // PERO DP NO APARECE
         _listaDeJugadas.Add(jugada);
     }
 

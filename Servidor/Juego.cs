@@ -284,6 +284,7 @@ public class Juego
         
 
         Jugador jugadorEnLlevarseLasCartas = _jugadores.ObtenerJugador(_idUltimoJugadorEnLlevarseLasCartas);
+
         jugadorEnLlevarseLasCartas.AgregarJugada(cartasSobrantes);
         _vista.SeLlevaLasUltimasCartas(jugadorEnLlevarseLasCartas, cartasSobrantes);
         _cartasEnMesa.SacarCartas(cartasSobrantes.CartasQueFormanJugada);
