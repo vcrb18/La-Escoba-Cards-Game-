@@ -5,17 +5,13 @@ Second big Homework for Detailed Design in Software course.
 - 4 horas
 
 #### Dia 2: 21-10-2022
-- 3-4 horas
+- 3-4 horas. DIREMOS 3:20 horas
 
 #### Dia 3: 22-10-2022
-- 1:20 horas + 2:20 horas
+- 1:20 horas + 2:20 horas = 3:40 horas
 
+#### Dia 4: 23-10-2022
+- 
 NO OLVIDAR:  
     - Caso borde inicial
 
-PUNTOS:
-    - Por cada Escoba. BIEN
-    - Siete de oro. BIEN
-    - nr de sietes >= 2. BIEN
-    - nr de cartas >= 20, BIEN
-    - nr de oros >= 5. MAL

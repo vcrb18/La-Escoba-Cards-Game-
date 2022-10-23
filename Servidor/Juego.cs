@@ -41,9 +41,7 @@ public class Juego
                 NuevoJuego();
             }
             
-            /////////////////////////////////////
-            // Caso Borde de Escoba en la Mesa //
-            /////////////////////////////////////
+            ChequeaCasoBorde();
             _vista.MostrarInfoInicial(_idJugadorRepartidor, _idJugadorPartidor);
             while (!EsFinMazoYManos())
             {
@@ -57,11 +55,81 @@ public class Juego
 
     private void ChequeaCasoBorde()
     {
-        
+        sum_up(_cartasEnMesa.CartasDeLaMesa, _target);
+        if (_listaDeJugadasPosibles.Count == 1)
+        {
+            // Necesito que sean las 4 cartas
+            if (HayCUatroCartasEnJugada(_listaDeJugadasPosibles[0]))
+            {
+                JugarJugadaCasoBorde(_listaDeJugadasPosibles[0]);
+                ResetearJugadas();
+            }
+        }
+        else if (_listaDeJugadasPosibles.Count == 2)
+        {
+            // Necesito que cada jugada sean 2 cartas
+            if (AmbasJugadasSonDeDosCartas(_listaDeJugadasPosibles))
+            {
+                JugarJugadaCasoBorde(_listaDeJugadasPosibles[0]);
+                JugarJugadaCasoBorde(_listaDeJugadasPosibles[1]);
+                ResetearJugadas();
+
+            }
+        }
+
+    }
+    
+    // Siguientes tres metodos pasarlos a Jugada.cs
+    private bool HayCUatroCartasEnJugada(Jugada jugada)
+    {
+        if (jugada.NumeroDeCartasDeJugada == 4)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private bool AmbasJugadasSonDeDosCartas(List<Jugada> jugadas)
+    {
+        if (HayDosCartasEnJugada(jugadas[0]) && HayDosCartasEnJugada(jugadas[1]))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private bool HayDosCartasEnJugada(Jugada jugada)
+    {
+        if (jugada.NumeroDeCartasDeJugada == 2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    private void JugarJugadaCasoBorde(Jugada jugada)
+    {
+        _vista.HayUnaODosEscobasAlComienzo();   
+        Jugador jugador = _jugadores.ObtenerJugador(_idJugadorRepartidor);
+        GuardarUltimoJugadorEnLlevarseCartas(jugador);
+        jugador.AgregarJugada(jugada);
+        _cartasEnMesa.SacarCartas(jugada.CartasQueFormanJugada);
+        _vista.JugadorSeLlevaLasCartas(jugador, jugada);
+        _vista.MostrarEscoba(jugador);
     }
 
     private bool EsFinJuego()
     {
+        
         return false;
     }
 
@@ -270,7 +338,7 @@ public class Juego
         {
             if (_mazoCartas.SeAcabaronLasCartas())
             {
-                // NUNCA VA A ENTRAR ACA
+                // NUNCA VA A ENTRAR ACAF
                 
                 // UltimaJugadaDelMazo();
                 // NuevoJuego();

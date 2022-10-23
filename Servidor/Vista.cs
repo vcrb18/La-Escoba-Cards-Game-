@@ -121,4 +121,11 @@ public class Vista
             Console.WriteLine($"    Jugador {jugador._id}: {jugador.Puntaje}");
         }
     }
+
+    public void HayUnaODosEscobasAlComienzo()
+    {
+        Console.WriteLine("-----------------------------------");
+        Console.WriteLine("Las cuatro cartas depositadas sobre la mesa suman exactamente uno o dos grupos de 15");
+        Console.WriteLine("Por lo tanto el jugador que reparte las cartas se lleva las cartas para sí");
+    }
 }
