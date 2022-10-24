@@ -36,10 +36,6 @@ public class Juego
     {
         while (!EsFinJuego())
         {
-            if (_mazoCartas.SeAcabaronLasCartas() && _jugadores.ManosVacias())
-            {
-                NuevoJuego();
-            }
             
             ChequeaCasoBorde();
             _vista.MostrarInfoInicial(_idJugadorRepartidor, _idJugadorPartidor);
@@ -50,6 +46,10 @@ public class Juego
                 CambiarTurno();
             }
             // break;
+            if (_mazoCartas.SeAcabaronLasCartas() && _jugadores.ManosVacias())
+            {
+                NuevoJuego();
+            }
         }
     }
 
@@ -130,7 +130,7 @@ public class Juego
     // Arreglar funcion
     private bool EsFinJuego()
     {
-        if (EsFinMazoYManos())
+        if (AlgunJugadorGanoElJuego())
         {
             _vista.FinalDePartida();
             List<Jugador> listaJugadoresGanadores = _jugadores.ObtenerListaJugadoresGanadores();
@@ -157,7 +157,20 @@ public class Juego
             return false;
         }
     }
-    
+
+    private bool AlgunJugadorGanoElJuego()
+    {
+        Jugador jugadorUno = _jugadores.ObtenerJugador(0);
+        Jugador jugadorDos = _jugadores.ObtenerJugador(1);
+        if (jugadorUno.Puntaje >= _target || jugadorDos.Puntaje >= _target)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     
 
     private bool EsFinMazoYManos()
@@ -166,16 +179,13 @@ public class Juego
         {
             if (_jugadores.ManosVacias())
             {
-                Jugador jugadorEnLlevarseLasCartas = _jugadores.ObtenerJugador(_idUltimoJugadorEnLlevarseLasCartas);
+                // Jugador jugadorEnLlevarseLasCartas = _jugadores.ObtenerJugador(_idUltimoJugadorEnLlevarseLasCartas);
                 // Console.WriteLine($"Jugadas pre Ultima jugada jugador {jugadorEnLlevarseLasCartas._id}: {jugadorEnLlevarseLasCartas.NumeroDeJugadas()}");
                 // Console.WriteLine($"VEMOS LA ULTIMA JUGADA: {jugadorEnLlevarseLasCartas.ListaDeJugadas[jugadorEnLlevarseLasCartas.ListaDeJugadas.Count - 1]}");
-                UltimaJugadaDelMazo();
                 // Console.WriteLine($"Jugadas post Ultima jugada jugador {jugadorEnLlevarseLasCartas._id}: {jugadorEnLlevarseLasCartas.NumeroDeJugadas()}");
                 // Console.WriteLine($"VEMOS LA ULTIMA JUGADA: {jugadorEnLlevarseLasCartas.ListaDeJugadas[jugadorEnLlevarseLasCartas.ListaDeJugadas.Count - 1]}");
+                UltimaJugadaDelMazo();
                 _vista.CartasGanadasEnEstaRonda(_jugadores);
-
-                
-                
                 _jugadores.CalcularPuntajes();
                 _vista.TotalPuntosGanadosJugadores(_jugadores);
                 return true;
@@ -199,6 +209,7 @@ public class Juego
         BarajarMazo();
         RepartirCartas();
         PonerMesa();
+        // CAMBIO?
     }
 
     public void CambiarRepartidorYJugador()
