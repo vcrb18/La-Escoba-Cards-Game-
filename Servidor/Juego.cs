@@ -55,7 +55,7 @@ public class Juego
 
     private void ChequeaCasoBorde()
     {
-        sum_up(_cartasEnMesa.CartasDeLaMesa, _target);
+        sum_up_casoBorde(_cartasEnMesa.CartasDeLaMesa, _target);
         if (_listaDeJugadasPosibles.Count == 1)
         {
             // Necesito que sean las 4 cartas
@@ -252,8 +252,8 @@ public class Juego
         _vista.MostrarQuienJuega(jugador);
         _vista.MostrarMesaActual(_cartasEnMesa);
         Carta cartaAJugar = _vista.MostrarManoJugador(jugador);
-        JugarTurnoJugador(cartaAJugar);
         ResetearJugadas();
+        JugarTurnoJugador(cartaAJugar);
         
     }
 
@@ -300,7 +300,7 @@ public class Juego
     private void CalcularJugadas(Carta cartaAJugar)
     {
         List<Jugada> jugadasPosibles = new List<Jugada>();
-        sum_up(CartasQuePuedenSumarQuince(cartaAJugar), _target);
+        sum_up(CartasQuePuedenSumarQuince(cartaAJugar), _target, cartaAJugar);
         
         // List<Carta> cartasQuePuedenSumarQuince = CartasQuePuedenSumarQuince(cartaAJugar);
         // List<int> C = new List<int>();
@@ -328,12 +328,12 @@ public class Juego
         return cartasQuePuedenSumarQuince;
     }
 
-    private void sum_up(List<Carta> numbers, int target)
+    private void sum_up_casoBorde(List<Carta> numbers, int target)
     {
-        sum_up_recursive(numbers, target, new List<Carta>());
+        sum_up_recursive_casoBorde(numbers, target, new List<Carta>());
     }
 
-    private void sum_up_recursive(List<Carta> numbers, int target, List<Carta> partial)
+    private void sum_up_recursive_casoBorde(List<Carta> numbers, int target, List<Carta> partial)
     {
         int s = 0;
         foreach (Carta x in partial) s += x.ConvierteValorAInt();
@@ -355,7 +355,45 @@ public class Juego
 
             List<Carta> partial_rec = new List<Carta>(partial);
             partial_rec.Add(n);
-            sum_up_recursive(remaining, target, partial_rec);
+            sum_up_recursive_casoBorde(remaining, target, partial_rec);
+        }
+    }
+    
+    private void sum_up(List<Carta> numbers, int target, Carta cartaObligatoria)
+    {
+        sum_up_recursive(numbers, target, new List<Carta>(), cartaObligatoria);
+    }
+
+    private void sum_up_recursive(List<Carta> numbers, int target, List<Carta> partial, Carta cartaObligatoria)
+    {
+        int s = 0;
+        foreach (Carta x in partial) s += x.ConvierteValorAInt();
+
+        if (s == target)
+            // Console.WriteLine(partial.ToArray());
+            // Console.WriteLine("sum(" + string.Join(",", partial.ToArray()) + ")=" + target);
+            // Console.WriteLine("sum(" + string.Join(",", partial) + ")=" + target);
+
+            if (partial.Contains(cartaObligatoria))
+            {
+                // Console.WriteLine($"De antes habian {_listaDeJugadasPosibles.Count} Jugadas");
+                // Console.WriteLine($"Jugada a guardar");
+                // Console.WriteLine("sum(" + string.Join(",", partial) + ")=" + target);
+                GuardaJugada(partial);
+            }
+
+        if (s >= target)
+            return;
+
+        for (int i = 0; i < numbers.Count; i++)
+        {
+            List<Carta> remaining = new List<Carta>();
+            Carta n = numbers[i];
+            for (int j = i + 1; j < numbers.Count; j++) remaining.Add(numbers[j]);
+
+            List<Carta> partial_rec = new List<Carta>(partial);
+            partial_rec.Add(n);
+            sum_up_recursive(remaining, target, partial_rec, cartaObligatoria);
         }
     }
 
@@ -364,7 +402,7 @@ public class Juego
         Jugada jugadaPosible = new Jugada(cartasQueSumanQuince, true);
         _listaDeJugadasPosibles.Add(jugadaPosible);
     }
-    
+
     private void ResetearJugadas()
     {
         _listaDeJugadasPosibles = new List<Jugada>();

@@ -11,7 +11,7 @@ Second big Homework for Detailed Design in Software course.
 - 1:20 horas + 2:20 horas = 3:40 horas
 
 #### Dia 4: 23-10-2022
-- 2:04 horas + 0:16 horas
+- 2:04 horas + 1:00 horas
 
 - CASO BORDE: Escoba siempre con la carta que baje o no necesariamente?  
 Actualmente funciona no incluyendo la carta de la mano, se puede observar en la seed = 2 2da ronda.
