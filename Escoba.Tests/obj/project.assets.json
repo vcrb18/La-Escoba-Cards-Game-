@@ -1670,6 +1670,16 @@
         "build": {
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
+      },
+      "Escoba/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Escoba.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Escoba.dll": {}
+        }
       }
     }
   },
@@ -5966,10 +5976,16 @@
         "xunit.runner.visualstudio.2.4.3.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "Escoba/1.0.0": {
+      "type": "project",
+      "path": "../Escoba.csproj",
+      "msbuildProject": "../Escoba.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Escoba >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.1.0",
       "coverlet.collector >= 3.1.2",
       "xunit >= 2.4.1",
@@ -6000,7 +6016,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\vicru\\RiderProjects\\La-Escoba-Cards-Game-\\Escoba.csproj": {
+              "projectPath": "C:\\Users\\vicru\\RiderProjects\\La-Escoba-Cards-Game-\\Escoba.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

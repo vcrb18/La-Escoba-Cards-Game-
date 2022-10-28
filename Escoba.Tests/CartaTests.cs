@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Servidor;
 using Xunit;
 
 namespace Escoba.Tests;
@@ -19,7 +20,11 @@ public class CartaTests
     public void ConvierteValorAInt_StringDelValorDebeConvertirse(string valor, int expected)
     {
         // Arrange
-        Carta carta = new Carta(valor)
+        Carta carta = new Carta("oro", valor);
+        int valorEsperado = expected;
         // Act
+        int valorNuevo = carta.ConvierteValorAInt();
+        // Assert
+        Assert.Equal(valorNuevo, valorEsperado);
     }
 }
