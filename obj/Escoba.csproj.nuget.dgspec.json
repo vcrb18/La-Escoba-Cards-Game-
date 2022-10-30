@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vicru\\RiderProjects\\La-Escoba-Cards-Game-\\Escoba.csproj": {}
+    "C:\\Users\\vicru\\Documents\\2022-02\\Diseño_detallado\\Tarea2\\Escoba\\La-Escoba-Cards-Game-\\Escoba.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vicru\\RiderProjects\\La-Escoba-Cards-Game-\\Escoba.csproj": {
+    "C:\\Users\\vicru\\Documents\\2022-02\\Diseño_detallado\\Tarea2\\Escoba\\La-Escoba-Cards-Game-\\Escoba.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vicru\\RiderProjects\\La-Escoba-Cards-Game-\\Escoba.csproj",
+        "projectUniqueName": "C:\\Users\\vicru\\Documents\\2022-02\\Diseño_detallado\\Tarea2\\Escoba\\La-Escoba-Cards-Game-\\Escoba.csproj",
         "projectName": "Escoba",
-        "projectPath": "C:\\Users\\vicru\\RiderProjects\\La-Escoba-Cards-Game-\\Escoba.csproj",
+        "projectPath": "C:\\Users\\vicru\\Documents\\2022-02\\Diseño_detallado\\Tarea2\\Escoba\\La-Escoba-Cards-Game-\\Escoba.csproj",
         "packagesPath": "C:\\Users\\vicru\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vicru\\RiderProjects\\La-Escoba-Cards-Game-\\obj\\",
+        "outputPath": "C:\\Users\\vicru\\Documents\\2022-02\\Diseño_detallado\\Tarea2\\Escoba\\La-Escoba-Cards-Game-\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vicru\\AppData\\Roaming\\NuGet\\NuGet.Config"

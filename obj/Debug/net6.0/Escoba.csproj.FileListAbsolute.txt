@@ -3,3 +3,8 @@ C:\Users\vicru\RiderProjects\La-Escoba-Cards-Game-\obj\Debug\net6.0\Escoba.Gener
 C:\Users\vicru\RiderProjects\La-Escoba-Cards-Game-\obj\Debug\net6.0\Escoba.AssemblyInfoInputs.cache
 C:\Users\vicru\RiderProjects\La-Escoba-Cards-Game-\obj\Debug\net6.0\Escoba.AssemblyInfo.cs
 C:\Users\vicru\RiderProjects\La-Escoba-Cards-Game-\obj\Debug\net6.0\Escoba.csproj.CoreCompileInputs.cache
+C:\Users\vicru\Documents\2022-02\Diseño_detallado\Tarea2\Escoba\La-Escoba-Cards-Game-\obj\Debug\net6.0\Escoba.csproj.AssemblyReference.cache
+C:\Users\vicru\Documents\2022-02\Diseño_detallado\Tarea2\Escoba\La-Escoba-Cards-Game-\obj\Debug\net6.0\Escoba.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vicru\Documents\2022-02\Diseño_detallado\Tarea2\Escoba\La-Escoba-Cards-Game-\obj\Debug\net6.0\Escoba.AssemblyInfoInputs.cache
+C:\Users\vicru\Documents\2022-02\Diseño_detallado\Tarea2\Escoba\La-Escoba-Cards-Game-\obj\Debug\net6.0\Escoba.AssemblyInfo.cs
+C:\Users\vicru\Documents\2022-02\Diseño_detallado\Tarea2\Escoba\La-Escoba-Cards-Game-\obj\Debug\net6.0\Escoba.csproj.CoreCompileInputs.cache

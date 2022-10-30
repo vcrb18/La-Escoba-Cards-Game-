@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mHv1kiE3l/oHySmMAiYXDGqNp2somuIY/aHltSi/F0kRuWeYJdFqOjEefHGPGTreJpJCOt927J+UV/aaWQwE6w==",
+  "dgSpecHash": "e6zD7Tes7ta0EZRLRkFk0XQ2wmN3hY9J0luyHpsoIkCFFnbzrTjvVe5K6QKR1+cegEnfL+U1RmKl+kXpDwYAFg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vicru\\RiderProjects\\La-Escoba-Cards-Game-\\Escoba.Tests\\Escoba.Tests.csproj",
+  "projectFilePath": "C:\\Users\\vicru\\Documents\\2022-02\\Diseño_detallado\\Tarea2\\Escoba\\La-Escoba-Cards-Game-\\Escoba.Tests\\Escoba.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vicru\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\vicru\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",
